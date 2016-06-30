@@ -1,21 +1,17 @@
 language:
   - objective-c
-
 osx_image: xcode7.3
-
 env:
   - DEVICE=9.2
-
+  - DEVICE=9.3
 node_js:
-  - "4.0"
-
+  - "0.12"
 install:
   - node --version
   - npm install
   - npm install -g gulp
-
 script:
-  - npm run test
-
+  - gulp once
+  - _FORCE_LOGS=1 gulp e2e-test
 after_success:
-  - npm run coveralls
+  - gulp coveralls
