@@ -5,13 +5,11 @@ env:
   - DEVICE=9.2
   - DEVICE=9.3
 node_js:
-  - "0.12"
+  - "4.0"
 install:
   - node --version
   - npm install
-  - npm install -g gulp
 script:
-  - gulp once
-  - _FORCE_LOGS=1 gulp e2e-test
+  - npm run test
 after_success:
-  - gulp coveralls
+  - npm run coveralls
