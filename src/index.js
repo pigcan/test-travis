@@ -1,5 +1,5 @@
 const x = () => {
-  return 1;
+  return 2;
 }
 
 export default x;

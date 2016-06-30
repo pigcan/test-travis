@@ -13,7 +13,7 @@ describe('x', () => {
 
   it('start', done => {
     const xvalue = x();
-    expect(xvalue).toEqual(1);
+    expect(xvalue).toEqual(2);
     done();
   });
 });
