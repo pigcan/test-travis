@@ -1,10 +1,27 @@
+
 language:
   - objective-c
-osx_image: xcode7.3
-env:
-  - DEVICE=9.3
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode7.3
+    - os: osx
+      osx_image: xcode7.2
+    - os: osx
+      osx_image: xcode7.1
+    - os: osx
+      osx_image: xcode7
+
+install:
+  - rm -rf ~/.nvm
+  - git clone https://github.com/creationix/nvm.git ~/.nvm
+  - source ~/.nvm/nvm.sh
+  - nvm install 4.0
+  - node --version
+  - npm install
 
 script:
   - npm run test
+
 after_success:
   - npm run coveralls
